@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+	<h1>Registration Page</h1>
+	
+	<p>{{ message }}</p>
+	
+	
+	
+    <form data-ng-submit="register()" name="registrationForm">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput">UserId</label>
+      <div class="input-group mb-2 mb-sm-0">
+        <div class="input-group-addon"> User Name:</div>
+     <input type="text" data-ng-model="user.userName" class="form-control mb-2 mb-sm-0" id="inlineFormInputGroup" placeholder="Jane Doe">
+    </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Password</label>
+      <div class="input-group mb-2 mb-sm-0">
+        <div class="input-group-addon">Password</div>
+        <input type="password" data-ng-model="user.password" class="form-control" id="inlineFormInputGroup" placeholder="password">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Email</label>
+      <div class="input-group mb-2 mb-sm-0">
+        <div class="input-group-addon">Email</div>
+        <input type="text" data-ng-model="user.emailId" class="form-control" id="inlineFormInputGroup" placeholder="email">
+      </div>
+    </div>
+    
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+</div>

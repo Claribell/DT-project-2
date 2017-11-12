@@ -1,0 +1,4 @@
+com\niit\SocialNetworkBackend1\Dao\UserDao.class
+com\niit\SocialNetworkBackend1\model\User.class
+com\niit\SocialNetworkBackend1\config\ApplicationContextConfig.class
+com\niit\SocialNetworkBackend1\Dao\UserDaoImpl.class

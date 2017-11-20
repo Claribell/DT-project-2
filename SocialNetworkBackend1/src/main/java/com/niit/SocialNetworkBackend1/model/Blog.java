@@ -20,6 +20,7 @@ public class Blog {
 	Date creationDate;
 	private String status;
 	private int likes;
+	
 	public int getBlogId() {
 		return blogId;
 	}

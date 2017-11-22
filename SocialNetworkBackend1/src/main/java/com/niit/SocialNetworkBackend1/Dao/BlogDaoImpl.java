@@ -2,6 +2,7 @@ package com.niit.SocialNetworkBackend1.Dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,13 @@ public class BlogDaoImpl implements BlogDao{
 	@Autowired
 	public SessionFactory sessionfactory;
 	
-    @Transactional
+ public SessionFactory getSessionfactory() {
+		return sessionfactory;
+	}
+	public void setSessionfactory(SessionFactory sessionfactory) {
+		this.sessionfactory = sessionfactory;
+	}
+	@Transactional
 	public boolean addBlog(Blog blog) {
 		try {
 			sessionfactory.getCurrentSession().save(blog);
@@ -53,18 +60,25 @@ public class BlogDaoImpl implements BlogDao{
 
 	@Override
 	public Blog getBlog(int blogId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=sessionfactory.openSession();
+		Blog blog=(Blog) session.get(Blog.class,blogId);
+		session.close();
+		return blog;
 	}
 
 	@Override
 	public List<Blog> getAllBlogs() {
-		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 	@Override
 	public boolean approveBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean rejectBlog(Blog blog) {
 		// TODO Auto-generated method stub
 		return false;
 	}

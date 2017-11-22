@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table
 public class Blog {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	private int blogId;
 	private String blogName;
 	private String userName;

@@ -45,7 +45,7 @@ public class BlogDaoImpl implements BlogDao{
 		}
 	}
 
-	@Override
+	@Transactional
 	public boolean deleteBlog(Blog blog) {
 		try {
 			sessionfactory.getCurrentSession().delete(blog);
@@ -57,8 +57,8 @@ public class BlogDaoImpl implements BlogDao{
 		}
 		
 	}
-
-	@Override
+	
+    @Override
 	public Blog getBlog(int blogId) {
 		Session session=sessionfactory.openSession();
 		Blog blog=(Blog) session.get(Blog.class,blogId);
@@ -68,19 +68,35 @@ public class BlogDaoImpl implements BlogDao{
 
 	@Override
 	public List<Blog> getAllBlogs() {
-		return null;
-		
-	}
-
-	@Override
+		Session session=sessionfactory.openSession();
+		List<Blog>bloglist=(List<Blog>)session.createQuery("from Blog").list();
+		session.close();
+		return bloglist;
+    }
+    @Transactional
 	public boolean approveBlog(Blog blog) {
-		// TODO Auto-generated method stub
+		try {
+			blog.setStatus("A");
+			sessionfactory.getCurrentSession().update(blog);
+			return true;
+		}
+		catch(Exception e){
+			System.out.println("Exception occured:"+e);
 		return false;
+		}
 	}
-	@Override
+		
+	@Transactional
 	public boolean rejectBlog(Blog blog) {
-		// TODO Auto-generated method stub
+		try {
+			blog.setStatus("R");
+			sessionfactory.getCurrentSession().update(blog);
+			return true;
+		}
+		catch(Exception e){
+			System.out.println("Exception occured:"+e);
 		return false;
+		}
 	}
 
 }

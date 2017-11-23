@@ -45,6 +45,46 @@ public class BlogDaoTest {
     	System.out.println("Blog Name:" +blog.getBlogName());
     	System.out.println("Blog Content:" +blog.getBlogContent());
     }
+    @Ignore
+    @Test
+    public void updateBlogTest() {
+    	Blog blog=blogDao.getBlog(1);
+    	blog.setBlogContent("Clientside MVC Framework");
+    	assertTrue("problem in updating blog",blogDao.updateBlog(blog));
+    	System.out.println("Blog Name:" +blog.getBlogName());
+    	System.out.println("Blog Content:" +blog.getBlogContent());
+     }
+    @Ignore
+    @Test
+    public void getAllBlogTest()
+    {
+    	List<Blog>bloglist=(List<Blog>)blogDao.getAllBlogs();
+    	assertNotNull("Blog list not found",bloglist.get(0));
+    	for (Blog blog:bloglist)
+    	{
+    		System.out.println("BlogId:" + blog.getBlogId()+"::"+"BlogName:"+blog.getBlogName());
+    	}
+    }
+    @Ignore
+    @Test
+    public void rejectBlogTest()
+    {
+    	Blog blog=(Blog)blogDao.getBlog(1);
+    	assertTrue("problem in rejecting blog",blogDao.rejectBlog(blog));
+    }
+    @Ignore
+    @Test
+    public void approveBlogTest()
+    {
+    	Blog blog=(Blog)blogDao.getBlog(1);
+    	assertTrue("problem in aproving blog",blogDao.approveBlog(blog));
+    }
+    @Test
+    public void deleteBlogTest()
+    {
+    	Blog blog=(Blog)blogDao.getBlog(1);
+    	assertTrue("problem in deleting blog",blogDao.deleteBlog(blog));
+    }
 	
    
 

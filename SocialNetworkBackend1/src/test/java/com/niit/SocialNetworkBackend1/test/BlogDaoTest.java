@@ -82,7 +82,7 @@ public class BlogDaoTest {
     @Test
     public void deleteBlogTest()
     {
-    	Blog blog=(Blog)blogDao.getBlog(1);
+    	Blog blog=(Blog)blogDao.getBlog(22);
     	assertTrue("problem in deleting blog",blogDao.deleteBlog(blog));
     }
 	

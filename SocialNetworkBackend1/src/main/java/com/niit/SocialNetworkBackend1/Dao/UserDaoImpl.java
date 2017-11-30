@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	@Override
+	@Transactional
 	public boolean updateOnlineStatus(String status, UserInfo user) {
 		try
 		{
@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	@Override
+	@Transactional
 	public UserInfo getUser(String userName) {
 	Session session=sessionfactory.openSession();
 	UserInfo user=(UserInfo)session.get(UserInfo.class, userName);
@@ -65,21 +65,30 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public UserInfo getByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		return(UserInfo) sessionfactory.getCurrentSession().get(UserInfo.class,email);
 	}
 
-	@Override
+	@Transactional
 	public boolean delete(String email) {
-		// TODO Auto-generated method stub
-		return false;
+		try
+		{
+			sessionfactory.getCurrentSession().delete(getByEmail (email));
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception arised:" +e);
+			return false;
+		}
+		
 	}
 
 	@Override
 	public List<UserInfo> getAllUser() {
-		
-		
-		return null;
+		Session session=sessionfactory.openSession();
+		List<UserInfo>userlist=(List<UserInfo>)session.createQuery("from UserInfo").list();
+		session.close();
+		return userlist;
 	}
 	
 	

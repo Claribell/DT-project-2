@@ -2,12 +2,16 @@ package com.niit.SocialNetworkBackend1.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.SocialNetworkBackend1.Dao.ForumDao;
+
 import com.niit.SocialNetworkBackend1.Dao.UserDao;
+
 import com.niit.SocialNetworkBackend1.model.UserInfo;
 
 public class UserDaoTest {
@@ -22,7 +26,7 @@ public class UserDaoTest {
 		annotationConfigAppContext.refresh();
 		userDao=(UserDao)annotationConfigAppContext.getBean("userDao");
 	 }
-	
+	@Ignore
 	@Test
 	public void addUserTest()
 	{
@@ -36,5 +40,26 @@ public class UserDaoTest {
 		user.setRole("Admin");
 		assertTrue("problem in creating user",userDao.addUser(user));
      }
+	@Ignore
+	@Test
+	public void isOnlineTest()
+	{
+		UserInfo user=userDao.getUser("Daniel");
+		assertTrue("problem in updation",userDao.updateOnlineStatus("N", user));
+				
+	}
+	@Ignore
+	@Test
+	 public void getUserTest()
+	    {
+	    	UserInfo user=userDao.getUser("Daniel");
+	    	assertNotNull("User not found",user);
+	    }
+	@Test
+	public void getAllUsersTest()
+	{
+		List<UserInfo>userlist=(List<UserInfo>)userDao.getAllUser();
+		assertNotNull("user list not found",userlist.get(0));
+	}
 
 }

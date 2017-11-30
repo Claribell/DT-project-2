@@ -10,9 +10,10 @@ import javax.persistence.Table;
 @Table
 public class UserInfo {
 	
-	@Id
+	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
+	@Id
 	private String userName;
 	private String firstName;
 	private String lastName;

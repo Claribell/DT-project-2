@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.SocialNetworkBackend1.model.Job;
+import com.niit.SocialNetworkBackend1.model.JobInfo;
 
 @Repository("jobDao")
 public class JobDaoImpl implements JobDao {
@@ -25,7 +25,7 @@ public class JobDaoImpl implements JobDao {
 	}
 
 	@Transactional
-	public boolean addJob(Job job) {
+	public boolean addJob(JobInfo job) {
 		try {
 			sessionfactory.getCurrentSession().save(job);
 			return true;
@@ -38,23 +38,23 @@ public class JobDaoImpl implements JobDao {
 	}
 
    @Override
-	public Job getJobById(int jobId) {
+	public JobInfo getJobById(int jobId) {
 	   Session session=sessionfactory.openSession();
-	   Job job=(Job)session.get(Job.class,jobId);
+	   JobInfo job=(JobInfo)session.get(JobInfo.class,jobId);
 	   session.close();
 	   return job;
 	}
 
 	@Override
-	public List<Job> list() {
+	public List<JobInfo>getJoblist() {
 		 Session session=sessionfactory.openSession();
-		 List<Job>joblist=(List<Job>)session.createQuery("from Job").list();
+		 List<JobInfo>joblist=(List<JobInfo>)session.createQuery("from JobInfo").list();
 		 session.close();
 		 return joblist;
 	}
 
 	@Transactional
-	public boolean updateJob(Job job) {
+	public boolean updateJob(JobInfo job) {
 		try {
 			sessionfactory.getCurrentSession().saveOrUpdate(job);
 			return true;
@@ -67,7 +67,7 @@ public class JobDaoImpl implements JobDao {
 	}
 
 	@Transactional
-	public boolean deleteJob(Job job) {
+	public boolean deleteJob(JobInfo job) {
 		try {
 			sessionfactory.getCurrentSession().delete(job);
 			return true;

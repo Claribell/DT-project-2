@@ -1,0 +1,12 @@
+<div ng-controller="BlogController">
+<table width=100%>
+<tr bgcolor="orange">
+<td>BlogName</td>
+<td>BlogContent</td>
+</tr>
+<tr bgcolor="cyan" ng-repeat="blog in blogdata">
+<td>{{blog.blogName}}</td>
+<td>{{blog.blogContent}}</td>
+</tr>
+</table>
+</div>

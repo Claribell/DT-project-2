@@ -7,22 +7,17 @@ app.config(function($routeProvider, $locationProvider) {
 
 		// route for the home page
 		.when('/', {
-			templateUrl : 'pages/home.html',
-			controller  : 'mainController'
-		})
+			templateUrl : 'index.html'
+        })
         
-		.when('/registration', {
-			templateUrl : 'user/registration.html',
-			controller  : 'registrationController'
+		.when('/blog', {
+			templateUrl : 'Blog/Blog.html',
+			controller  : 'BlogController'
 		})
 		// route for the about page
-		.when('/login', {
-			templateUrl : 'user/login.html',
-			controller  : 'loginController'
+		.when('/forum', {
+			templateUrl : 'Forum/Forum.html',
+			controller  : 'ForumController'
 		});		
-});
-
-app.controller('mainController', function($scope) {	
-	$scope.message = 'This is home page';
 });
 

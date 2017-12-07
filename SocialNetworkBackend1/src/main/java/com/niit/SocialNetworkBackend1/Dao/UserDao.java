@@ -11,4 +11,5 @@ public interface UserDao {
 	public UserInfo getByEmail(String email);
 	public boolean delete(String email);
 	public List<UserInfo> getAllUser();
+	public boolean checkLogin(UserInfo user);
 }

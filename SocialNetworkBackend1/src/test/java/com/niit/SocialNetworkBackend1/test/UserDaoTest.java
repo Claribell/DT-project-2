@@ -55,11 +55,22 @@ public class UserDaoTest {
 	    	UserInfo user=userDao.getUser("Daniel");
 	    	assertNotNull("User not found",user);
 	    }
+	@Ignore
 	@Test
 	public void getAllUsersTest()
 	{
 		List<UserInfo>userlist=(List<UserInfo>)userDao.getAllUser();
 		assertNotNull("user list not found",userlist.get(0));
 	}
-
-}
+	
+	@Test
+	public void checkLoginTest()
+	{
+		UserInfo  user1=new UserInfo();
+		user1.setUserName("Vihaan");
+		user1.setPassword("7685h");
+		assertTrue("problem in Login",userDao.checkLogin(user1));
+	}
+	
+	
+	}

@@ -98,5 +98,20 @@ public class BlogDaoImpl implements BlogDao{
 		return false;
 		}
 	}
+	@Transactional
+	public boolean incLikes(Blog blog) {
+		try
+		{
+			blog.setLikes(blog.getLikes()+1);
+			sessionfactory.getCurrentSession().update(blog);
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception occured:"+e);
+			return false;	
+		}
+		
+	}
 
 }

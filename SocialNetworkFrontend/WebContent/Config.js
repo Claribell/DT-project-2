@@ -18,5 +18,15 @@ app.config(function($routeProvider, $locationProvider) {
 		.when('/forum', {
 			templateUrl : 'Forum/Forum.html',
 			controller  : 'ForumController'
+		})
+	
+	    .when('/adminBlog', {
+		templateUrl : 'Blog/AdminBlog.html',
+		controller  : 'AdminBlogController'
+	})
+	
+	 .when('/register', {
+			templateUrl : 'User/register.html',
+			controller  : 'userController'
 		});		
 });

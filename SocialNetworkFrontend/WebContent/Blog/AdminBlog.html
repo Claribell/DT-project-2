@@ -1,0 +1,23 @@
+<div ng-controller="AdminBlogController">
+<form id="blogformid" method="post">
+<div class="container">
+  <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Blog Name</th>
+        <th>Blog Content</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="blog in blogdata">
+        <td>{{blog.blogName}}</td>
+        <td>{{blog.blogContent}}</td>
+        <td ng-show="blog.status=='R'"><input type="submit" value="Approve" ng-click="approveBlog(blog.blogId)"/></td>
+        <td ng-show="blog.status=='A'"><input type="submit" value="Reject" ng-click="rejectBlog(blog.blogId)"/></td>
+      </tr>      
+    </tbody>
+  </table>
+</div>
+</form>
+</div>

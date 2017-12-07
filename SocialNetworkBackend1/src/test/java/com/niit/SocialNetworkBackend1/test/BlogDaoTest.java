@@ -79,13 +79,19 @@ public class BlogDaoTest {
     	Blog blog=(Blog)blogDao.getBlog(1);
     	assertTrue("problem in aproving blog",blogDao.approveBlog(blog));
     }
+    @Ignore
     @Test
     public void deleteBlogTest()
     {
     	Blog blog=(Blog)blogDao.getBlog(22);
     	assertTrue("problem in deleting blog",blogDao.deleteBlog(blog));
     }
-	
+    @Test
+	public void incLikesBlogTest()
+	{
+		Blog blog=blogDao.getBlog(1);
+		assertTrue("problem in incrementing likes",blogDao.incLikes(blog));
+	}
    
 
 }

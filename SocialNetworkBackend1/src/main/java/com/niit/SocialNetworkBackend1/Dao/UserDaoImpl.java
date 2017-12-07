@@ -2,6 +2,7 @@ package com.niit.SocialNetworkBackend1.Dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,15 +65,15 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public UserInfo getByEmail(String email) {
-		return(UserInfo) sessionfactory.getCurrentSession().get(UserInfo.class,email);
+	public UserInfo getByEmail(String emailId) {
+		return(UserInfo) sessionfactory.getCurrentSession().get(UserInfo.class,emailId);
 	}
 
 	@Transactional
-	public boolean delete(String email) {
+	public boolean delete(String emailId) {
 		try
 		{
-			sessionfactory.getCurrentSession().delete(getByEmail (email));
+			sessionfactory.getCurrentSession().delete(getByEmail (emailId));
 			return true;
 		}
 		catch(Exception e)
@@ -89,6 +90,28 @@ public class UserDaoImpl implements UserDao {
 		List<UserInfo>userlist=(List<UserInfo>)session.createQuery("from UserInfo").list();
 		session.close();
 		return userlist;
+	}
+
+	@Transactional
+	public boolean checkLogin(UserInfo user) {
+		{
+			try
+			{
+				Session session=sessionfactory.openSession();
+				Query query=session.createQuery("from UserInfo where userName:=uname and password:=passwd");
+				query.setParameter("uname",user.getUserName());
+				query.setParameter("passwd",user.getPassword());
+				UserInfo user1=(UserInfo)query.list().get(0);
+				if(user1==null)
+					return false;
+				else
+					return true;
+			}
+			catch(Exception e) {
+				return false;
+			}
+		}
+		
 	}
 	
 	

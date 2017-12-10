@@ -32,7 +32,7 @@ public class BlogController {
 		}
 		else
 		{
-			return new ResponseEntity<String>("Error in Response Entity",HttpStatus.SERVICE_UNAVAILABLE);
+			return new ResponseEntity<String>("Problem in blog added",HttpStatus.SERVICE_UNAVAILABLE);
 		}
 	}
 	

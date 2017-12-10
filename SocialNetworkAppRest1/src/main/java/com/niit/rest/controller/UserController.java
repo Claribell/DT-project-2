@@ -1,5 +1,9 @@
 package com.niit.rest.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,8 +50,35 @@ public class UserController {
 		return new ResponseEntity<String>("could not logout",HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	}
-
-
+     @PostMapping(value="/login")
+    public ResponseEntity<UserInfo>checkLogin(@RequestBody UserInfo user,HttpSession session)
+    {
+    	if(userDao.checkLogin(user)) {
+    		UserInfo tempUser=userDao.getUser(user.getUserName());
+    		userDao.updateOnlineStatus("Y", tempUser);
+    		session.setAttribute("userName",user.getUserName());
+    		
+    		return new ResponseEntity<UserInfo>(tempUser,HttpStatus.OK);
+    	}
+    	else
+    	{
+    		return new ResponseEntity<UserInfo>(user,HttpStatus.BAD_REQUEST);	
+    	}
+    }
+     
+    @GetMapping(value="/getAllusers")
+ 	public ResponseEntity<List<UserInfo>>getAllusers()
+ 	{
+ 		List <UserInfo> listusers=userDao.getAllUser();
+ 		if(listusers!=null)
+ 		{
+ 		return new ResponseEntity <List<UserInfo>>(listusers,HttpStatus.OK);
+ 		}
+ 		else
+    	{
+    		return new ResponseEntity<List<UserInfo>>(listusers,HttpStatus.BAD_REQUEST);	
+    	}
+ 	}
 	
 
 }

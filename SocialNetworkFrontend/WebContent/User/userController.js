@@ -1,5 +1,6 @@
 app.controller("userController",function($scope,$http,$location){
-	$scope.user={userId:0,userName:'',password:'',firstName:'',lastName:'',emailId:''};
+	$scope.user={userName:'',password:'',firstName:'',lastName:'',emailId:'',role:''};
+	
 	$scope.registerUser=function()
 	{
 		console.log('Entered into registerUser');
@@ -8,7 +9,18 @@ app.controller("userController",function($scope,$http,$location){
 			 console.log("User Registered Successfully");
 			   $location.path("/User");
 		});
-	};
+	}
+	
+	$scope.login=function()
+	{
+		console.log("log in");
+		$http.post("http://localhost:7072/SocialNetworkAppRest1/login",$scope.user)
+		.then(function(response){
+		$scope.user=response.data;
+		$location.path("/UserHome");
+		});
+		
+	}
 	
 	
 });

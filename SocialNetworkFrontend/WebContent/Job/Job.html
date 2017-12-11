@@ -1,0 +1,24 @@
+<div ng-controller="JobController">
+
+<div class="col-md-4 col-md-offset-4 ">
+<div class="panel panel-success">
+<div class="panel-heading">
+<h4>Add a Job</h4>
+</div>
+ <div class="panel-body" >
+  <form id="jobform" method="post">
+   <div class="form-group">
+      <label for="jobprofile">Job Profile</label>
+      <input type="text" data-ng-model="job.jobProfile" class="form-control" id="jobprofile"  name="jobprofile">
+    </div>
+    <div class="form-group">
+      <label for="jobdesc">Job Description</label>
+      <input type="text"  data-ng-model="job.jobDescription" class="form-control" id="jobdesc" name="jobdesc">
+    </div>
+   <button type="submit" class="btn btn-success" ng-click="applyjob()"/>Add Job</button>
+</form>
+  </div>
+</div>
+</div>
+
+</div>

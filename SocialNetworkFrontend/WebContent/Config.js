@@ -28,5 +28,28 @@ app.config(function($routeProvider, $locationProvider) {
 	 .when('/register', {
 			templateUrl : 'User/register.html',
 			controller  : 'userController'
-		});		
+		})
+		
+	 .when('/login', {
+				templateUrl : 'User/login.html',
+				controller  : 'userController'
+			})
+	.when('/UserHome', {
+			templateUrl : 'Blog/Blog.html'
+        })
+        	
+	 .when('/friend', {
+				templateUrl : 'Friend/Friend.html',
+				controller  : 'friendController'
+			})
+	.when('/job', {
+			   templateUrl : 'Job/Job.html',
+			   controller  : 'JobController'
+		   })
+	.when('/showjob', {
+		   templateUrl : 'Job/showjob.html',
+		   controller  : 'JobController'
+	   });
+		
+			
 });

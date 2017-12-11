@@ -3,6 +3,7 @@ app.controller('BlogController',function($scope,$http,$location)
 {
 	$scope.blog={blogId:0,blogName:'',blogContent:'',creationDate:'',likes:' ',status:'',userName:''};
 	$scope.blogdata;
+	
 	function fetchAllBlog()
 	{
 	console.log('Fetching Blogs');

@@ -1,0 +1,23 @@
+<div ng-controller="JobController">
+<div class="container">
+  <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Job Profile</th>
+        <th>Job Description</th>
+        <th colspan="2">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="job in listJobs">
+        <td>{{job.jobProfile}}</td>
+        <td>{{job.jobDescription}}</td>
+		<td><input type="submit" value="Apply" ng-click="applyjob(job.jobId)"/></td>
+        <td><input type="submit" value="Delete" ng-click="deletejob(job.jobId)"/></td>
+      </tr>      
+    </tbody>
+  </table>
+</div>
+</div>
+
+

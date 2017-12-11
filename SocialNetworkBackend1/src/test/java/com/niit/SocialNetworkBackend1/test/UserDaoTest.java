@@ -69,7 +69,7 @@ public class UserDaoTest {
 		UserInfo  user1=new UserInfo();
 		user1.setUserName("Vihaan");
 		user1.setPassword("7685h");
-		assertTrue("problem in Login",userDao.checkLogin(user1));
+		assertNotNull("problem in Login",userDao.checkLogin(user1));
 	}
 	
 	

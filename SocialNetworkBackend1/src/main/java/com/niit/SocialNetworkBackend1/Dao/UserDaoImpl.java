@@ -98,7 +98,7 @@ public class UserDaoImpl implements UserDao {
 			try
 			{
 				Session session=sessionfactory.openSession();
-				Query query=session.createQuery("from UserInfo where userName:=uname and password:=passwd");
+				Query query=session.createQuery("from UserInfo where userName=:uname and password=:passwd");
 				query.setParameter("uname",user.getUserName());
 				query.setParameter("passwd",user.getPassword());
 				UserInfo user1=(UserInfo)query.list().get(0);

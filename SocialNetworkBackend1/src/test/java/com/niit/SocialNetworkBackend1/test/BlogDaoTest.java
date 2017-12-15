@@ -24,15 +24,14 @@ public class BlogDaoTest {
 		annotationConfigAppContext.refresh();
 		blogDao=(BlogDao)annotationConfigAppContext.getBean("blogDao");
 	 }
-    @Ignore
 	@Test
 	public void addBlogTest() {
 		Blog blog=new Blog();
-		blog.setUserName("Sharma");
-		blog.setBlogName("AngularJs");
-		blog.setBlogContent("Clientside framework");
-		blog.setStatus("A");
-		blog.setLikes(3);
+		blog.setUserName("Bindhu");
+		blog.setBlogName("HTML");
+		blog.setBlogContent("Based on HTML5");
+		blog.setStatus("R");
+		blog.setLikes(1);
 		blog.setCreationDate(new Date());
 		assertTrue("Problem in Inserting Blog",blogDao.addBlog(blog));
     }
@@ -86,6 +85,7 @@ public class BlogDaoTest {
     	Blog blog=(Blog)blogDao.getBlog(22);
     	assertTrue("problem in deleting blog",blogDao.deleteBlog(blog));
     }
+    @Ignore
     @Test
 	public void incLikesBlogTest()
 	{

@@ -26,18 +26,18 @@ public class UserDaoTest {
 		annotationConfigAppContext.refresh();
 		userDao=(UserDao)annotationConfigAppContext.getBean("userDao");
 	 }
-	@Ignore
 	@Test
 	public void addUserTest()
 	{
 		UserInfo user=new UserInfo();
-		user.setUserName("Daniel");
-		user.setFirstName("Gifton");
-		user.setLastName("Daniel");
-		user.setEmailId("dani@gmail.com");
+		user.setUserId(5);
+		user.setUserName("Nithin");
+		user.setFirstName("Nithin");
+		user.setLastName("Y");
+		user.setEmailId("nithin@gmail.com");
 		user.setPassword("5gfoi9@7");
 		user.setIsOnline("N");
-		user.setRole("Admin");
+		user.setRole("User");
 		assertTrue("problem in creating user",userDao.addUser(user));
      }
 	@Ignore
@@ -62,7 +62,7 @@ public class UserDaoTest {
 		List<UserInfo>userlist=(List<UserInfo>)userDao.getAllUser();
 		assertNotNull("user list not found",userlist.get(0));
 	}
-	
+	@Ignore
 	@Test
 	public void checkLoginTest()
 	{

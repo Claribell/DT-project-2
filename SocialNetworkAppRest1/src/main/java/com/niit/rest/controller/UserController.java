@@ -25,7 +25,7 @@ public class UserController {
 	@PostMapping(value="/register")
 	public ResponseEntity<String> registerUser(@RequestBody UserInfo user){
 		user.setIsOnline("N");
-		user.setRole("User");
+		user.setRole("user");
 		if(userDao.addUser(user))
 		{
 		return new ResponseEntity<String>("Registered",HttpStatus.OK);

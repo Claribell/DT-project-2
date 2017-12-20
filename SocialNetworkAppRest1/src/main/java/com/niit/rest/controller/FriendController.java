@@ -70,6 +70,15 @@ public class FriendController {
 			
 	}
 	
+	@GetMapping(value="/getAllFriendRequest")
+	public ResponseEntity<List<Friend>>getAllFriendRequest(HttpSession session)
+	{
+		String currentUser=(String)session.getAttribute("currentUser");
+		List<Friend>listFriendRequest=friendDao.getAllFriendRequest(currentUser);
+		return new ResponseEntity<List<Friend>>(listFriendRequest,HttpStatus.OK);	
+	}
+		
+	
 	
 	
 

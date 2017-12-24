@@ -1,4 +1,4 @@
-app.controller("userController",function($scope,$http,$location){
+app.controller("userController",function($scope,$http,$location,$rootScope,$cookieStore){
 	$scope.user={userName:'',password:'',firstName:'',lastName:'',emailId:'',role:''};
 	
 	$scope.registerUser=function()
@@ -17,6 +17,9 @@ app.controller("userController",function($scope,$http,$location){
 		$http.post("http://localhost:7072/SocialNetworkAppRest1/login",$scope.user)
 		.then(function(response){
 		$scope.user=response.data;
+		$rootScope.currentUser=response.data;
+		$cookieStore.put('user',response.data);
+		console.log($rootscope.currentuser.role);
 		$location.path("/UserHome");
 		});
 		

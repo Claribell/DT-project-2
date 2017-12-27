@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
- Role:{{currentUser.role}}
+ Role:{{currentUser.role}} 
 <head>
 <meta charset="ISO-8859-1">
 <title>Social Website</title>
@@ -15,14 +15,16 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#index.html"><i class="fa fa-home"></i> Home</a></li>
 				<li><a href="#blog"><i class="fa fa-shield"></i>Blog</a></li>
-				<!-- <div ng-show="currentUser.role=='Admin'"> -->
-				<li><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
 				<li><a href="#forum"><i class="fa fa-shield"></i>Forum</a></li>
-				<li><a href="#job"><i class="fa fa-shield"></i>Job</a></li>
+			    <div ng-show="currentUser.role=='Admin'">
+				<li><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
+				<li><a href="#job"><i class="fa fa-shield"></i>Job</a></li></div>
 				<li><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
+				<li><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
 				<li><a href="#register"><i class="fa fa-shield"></i>
 						Register</a></li>
 				<li><a href="#login"><i class="fa fa-shield"></i>Login</a></li>
+				<form><input type="submit" value="Logout" ng-click="logout()"/></form>
 			</ul>
 		</div>
 	</nav>
@@ -31,10 +33,12 @@
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
 <script src="Config.js"></script>
 <script src="Blog/BlogController.js"></script>
 <script src="Blog/AdminBlogController.js"></script>
 <script src="User/userController.js"></script>
 <script src="Job/JobController.js"></script>
+<script src="Friend/FriendController.js"></script>
 </body>
 </html>

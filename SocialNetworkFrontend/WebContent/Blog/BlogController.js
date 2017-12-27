@@ -30,25 +30,23 @@ app.controller('BlogController',function($scope,$http,$location)
 		console.log('Entered into Delete Blog');
 		$http.get("http://localhost:7072/SocialNetworkAppRest1/deleteBlog/"+blogId)
 		.success(fetchAllBlog(),function(response){
-			console.log('Successful Deletion');
+			console.log('Successful Deletion');	
 			$scope.refresh();
 			$location.path("/Blog")
 			
 		});
 	};
-	
-	$scope.editBlog=function(blogId)
+/*	
+	$scope.editBlog=function(blog)
 	{
 		console.log('Entered to the edit Blog');
-		console.log('Entered into Delete Blog');
-		$http.get("http://localhost:7072/SocialNetworkAppRest1/editBlog"+blogId)
-		.success(fetchAllBlog(),function(response){
-			console.log('Editing');
+		$http.put("http://localhost:7072/SocialNetworkAppRest1/updateBlog")
+		.then(fetchAllBlog(),function(response){
+			$scope.form.blogName=blog.blogName;
+			$scope.form.blogContent=blog.blogContent;
 			$scope.blog=response.data;
-			console.log($scope.blog);
-			$location.path("/Blog")
 	});
-	};
+	};*/
 	
 	$scope.incrementLike=function(blogId){
 		console.log('Entered into Increment Like');

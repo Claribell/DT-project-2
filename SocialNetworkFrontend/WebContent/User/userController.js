@@ -1,7 +1,7 @@
 app.controller("userController",function($scope,$http,$location,$rootScope,$cookieStore){
 	$scope.user={userName:'',password:'',firstName:'',lastName:'',emailId:'',role:''};
-	
-	$scope.registerUser=function()
+
+    $scope.registerUser=function()
 	{
 		console.log('Entered into registerUser');
 		$http.post("http://localhost:7072/SocialNetworkAppRest1/register",$scope.user)
@@ -18,10 +18,19 @@ app.controller("userController",function($scope,$http,$location,$rootScope,$cook
 		.then(function(response){
 		$scope.user=response.data;
 		$rootScope.currentUser=response.data;
-		$cookieStore.put('user',response.data);
-		console.log($rootscope.currentuser.role);
+		$cookieStore.put("userDetails",response.data);
+		console.log($rootScope.currentUser.role);
 		$location.path("/UserHome");
 		});
+		
+	}
+	
+	$rootScope.logout=function()
+	{
+		console.log("logging out");
+		delete $rootScope.currentUser;
+		$cookieStore.remove("userDetails");
+		$location.path("/logout");
 		
 	}
 	

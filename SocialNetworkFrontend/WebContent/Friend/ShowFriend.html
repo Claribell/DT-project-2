@@ -1,0 +1,21 @@
+<div ng-controller="FriendController">
+<div class="container">
+<form id="blogformId" method="post">
+   <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Friend Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="friend in allFriendRequest">
+        <td>{{friend.friendName}}</td>
+          <td ng-show="friend.status=='A'"><input type="submit" value="Reject" ng-click="reject(friend.friendId)"/></td>
+        <td ng-show="friend.status=='R'"><input type="submit" value="Approve" ng-click="approve(friend.friendId)"/></td>
+      </tr>      
+    </tbody>
+  </table>
+</form>
+</div>
+</div>

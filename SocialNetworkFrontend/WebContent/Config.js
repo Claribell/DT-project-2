@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute','ngCookies']);
 
 //configure our routes
 app.config(function($routeProvider, $locationProvider) {
@@ -49,7 +49,32 @@ app.config(function($routeProvider, $locationProvider) {
 	.when('/showjob', {
 		   templateUrl : 'Job/showjob.html',
 		   controller  : 'JobController'
-	   });
+	   })
+    .when('/showfriend', {
+		   templateUrl : 'Friend/ShowFriend.html',
+		   controller  : 'FriendController'
+	   })
+    .when('/logout', {
+			templateUrl : 'User/logout.html',
+			controller  : 'userController'
+		});
+	app.run(function($rootScope,$cookieStore)
+			{
+		console.log("I am in run function");
+		console.log($rootScope.currentUser);
+		if($rootScope.currentUser==undefined)
+			{
+			$rootScope.currentUser=$cookieStore.get("userDetails");
+			}
+		else
+			{
+			console.log($rootScope.currentUser.userName);
+			console.log($rootScope.currentUser.role);
+			}
+		
+		
+		
+			})
 		
 			
 });

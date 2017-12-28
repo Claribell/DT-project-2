@@ -22,6 +22,7 @@ app.controller('BlogController',function($scope,$http,$location)
 		   .then(fetchAllBlog(),function(response)
 				   {
 			   console.log("Blog entered Successfully");
+			   $scope.refresh();
 			   $location.path("/Blog");
 				   });
 	};

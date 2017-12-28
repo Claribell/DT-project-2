@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div ng-controller="FriendController">
 
-</body>
-</html>
+<table width="100%" border="1">
+		<tr bgcolor="cyan">
+			<td colspan="4"><center>Friend List</center></td>
+		<tr ng-repeat="user in allUsers" bgcolor="orange">
+			<td>{{user.userName}}</td>
+			
+			<td ng-show="user.isOnline=='Y'">Online</td>
+			<td ng-show="user.isOnline=='N'">Offline</td>
+			<td><input type=submit value="Add Friend" ng-click="addFriend(friend.friendName)"></td>
+			
+	</table>
+</div>

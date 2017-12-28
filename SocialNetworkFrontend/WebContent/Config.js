@@ -57,14 +57,28 @@ app.config(function($routeProvider, $locationProvider) {
     .when('/logout', {
 			templateUrl : 'User/logout.html',
 			controller  : 'userController'
-		});
-	app.run(function($rootScope,$cookieStore)
+		})
+		
+	.when('/chat', {
+			templateUrl : 'Chat/Chat.html',
+			controller  : 'ChatController'
+		})
+	.when('/profilepic', {
+		templateUrl : 'User/Profilepic.html',
+
+	})
+	 .when('/friend', {
+		   templateUrl : 'Friend/Friend.html',
+		   controller  : 'FriendController'
+	   });
+	
+app.run(function($rootScope,$cookieStore)
 			{
 		console.log("I am in run function");
 		console.log($rootScope.currentUser);
 		if($rootScope.currentUser==undefined)
 			{
-			$rootScope.currentUser=$cookieStore.get("userDetails");
+			$rootScope.currentUser=$cookieStore.get("user");
 			}
 		else
 			{

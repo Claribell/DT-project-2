@@ -33,6 +33,15 @@ $http.get("http://localhost:7072/SocialNetworkAppRest1/getAllFriendRequest")
 				});
 	};
 	
+	$scope.addFriend=function()
+	{
+		console.log("sending friend request");
+		$http.post("http://localhost:7072/SocialNetworkAppRest1/createFriendRequest",$scope.friend)
+		.then(function(response){
+			console.log("request send");
+		});
+		};
+	
 	
 	
 	});

@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
- Role:{{currentUser.role}} 
+<!--  Role:{{currentUser.role}}  -->
 <head>
 <meta charset="ISO-8859-1">
 <title>Social Website</title>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
 <nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">Facebook</a>
+				<a class="navbar-brand" href="/">AppPlay</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="#index.html"><i class="fa fa-home"></i> Home</a></li>
-				 <div ng-show="currentUser.role=='User'">
-				<li><a href="#blog"><i class="fa fa-shield"></i>Blog</a></li>
-				<li><a href="#forum"><i class="fa fa-shield"></i>Forum</a></li></div>
-			    <div ng-show="currentUser.role=='Admin'">
-				<li><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
-				<li><a href="#job"><i class="fa fa-shield"></i>Job</a></li></div>
-				 <div ng-show="currentUser.role=='User'">
-				<li><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
-				<li><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
-				 <li><a href="#friend"><i class="fa fa-shield"></i>Friends</a></li></div>
+				<li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+				<li ng-show="currentUser.role=='User'"><a href="#blog"><i class="fa fa-shield"></i>Blog</a></li>
+				<li ng-show="currentUser.role=='User'"><a href="#forum"><i class="fa fa-shield"></i>Forum</a></li>
+				<li ng-show="currentUser.role=='Admin'"><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
+				<li  ng-show="currentUser.role=='Admin'"><a href="#job"><i class="fa fa-shield"></i>Job</a></li>
+				<li ng-show="currentUser.role=='User'"><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Friend <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+				<li  ng-show="currentUser.role=='User'"><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
+				 <li  ng-show="currentUser.role=='User'"><a href="#friend"><i class="fa fa-shield"></i>Friends</a></li>
+				 </ul>
+				 </li>
 				<li><a href="#login"><i class="fa fa-shield"></i>Login</a></li>
-				 <div ng-show="currentUser.role=='User'">
-				 <li><a href="#chat"><i class="fa fa-shield"></i>Chat</a></li></div>
-			    <div ng-hide="currentUser.role=='Admin'">
-				<li><a href="#register"><i class="fa fa-shield"></i>
-						Register</a></li></div>
+				 <li ng-show="currentUser.role=='User'"><a href="#chat"><i class="fa fa-shield"></i>Chat</a></li>
+			     <li ng-hide="currentUser.role=='Admin'"><a href="#register"><i class="fa fa-shield"></i>
+						Register</a></li>
 					 </ul>
 					  <div ng-show="currentUser.role=='User'">
 				 <div class="nav navbar-nav navbar-right" ng-show="currentUser.userName!='undefined'">
-				 <font color='blue' face='calibri' size='4'>Welcome:{{currentUser.userName}}&nbsp;&nbsp;&nbsp;
+				 <font color='#ffa31a' face='calibri' size='4'>Welcome:{{currentUser.userName}}&nbsp;&nbsp;&nbsp;
 				<img src="http://localhost:7072/SocialNetworkAppRest1/getImage/{{currentUser.userName}}" width="20" height="20"/>
 	
 				<form><input type="submit" value="Logout" ng-click="logout()"/></form>
@@ -45,6 +45,11 @@
 <div id="main">
 		<div ng-view></div>
 </div>
+<footer class="navbar-default navbar-fixed-bottom" style="height:40px;background-color:white">
+  <div class="container-fluid">
+ <p style="line-height:40px;text-align:center">Copyright &copy; 2017 AppPlay. All Rights Reserved </p>
+  </div>
+</footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>

@@ -67,6 +67,10 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl : 'User/Profilepic.html',
 
 	})
+	.when('/home', {
+		templateUrl : 'home.html',
+
+	})
 	 .when('/friend', {
 		   templateUrl : 'Friend/Friend.html',
 		   controller  : 'FriendController'

@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.navbar-default {
+    background-color:#e74c3c;
+    color:black;
+    border-radius:0;
+}
+
+.navbar-default .navbar-brand {
+    color:white;
+}
+
+/* .navbar-default .navbar-nav > li > a {
+    color: #777;
+}
+
+.navbar-nav {
+  color: #00cc00;
+} */

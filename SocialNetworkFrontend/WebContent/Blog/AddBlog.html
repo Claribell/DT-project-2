@@ -1,0 +1,20 @@
+<div class="col-md-4 col-md-offset-4 ">
+<div class="panel panel-success">
+<div class="panel-heading">
+<h4>Create a Blog</h4>
+</div>
+ <div class="panel-body" >
+  <form id="blogform" method="post">
+   <div class="form-group">
+      <label for="blogname">Blog Name</label>
+      <input type="text" data-ng-model="blog.blogName" class="form-control" id="blogname" placeholder="Enter Blog name" name="blogname">
+    </div>
+    <div class="form-group">
+      <label for="blogcontent">Blog Content</label>
+      <input type="text"  data-ng-model="blog.blogContent" class="form-control" id="blogcontent" placeholder="Enter Blog content" name="blogcontent">
+    </div>
+   <button type="submit" class="btn btn-success" ng-click="insertBlog()"/>Submit</button>
+</form>
+  </div>
+</div>
+</div>

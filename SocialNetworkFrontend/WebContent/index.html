@@ -5,7 +5,9 @@
 <meta charset="ISO-8859-1">
 <title>Social Website</title>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
- <link rel="stylesheet" type="text/css" href="style.css"> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -20,12 +22,10 @@
 				<li ng-show="currentUser.role=='Admin'"><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
 				<li  ng-show="currentUser.role=='Admin'"><a href="#job"><i class="fa fa-shield"></i>Job</a></li>
 				<li ng-show="currentUser.role=='User'"><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Friend <span class="caret"></span></a>
-                 <ul class="dropdown-menu">
-				<li  ng-show="currentUser.role=='User'"><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
-				 <li  ng-show="currentUser.role=='User'"><a href="#friend"><i class="fa fa-shield"></i>Friends</a></li>
-				 </ul>
-				 </li>
+				
+          <li  ng-show="currentUser.role=='User'"><a href="#showfriend"><i class="fa fa-shield"></i>Show Friend</a></li>
+		  <li  ng-show="currentUser.role=='User'"><a href="#friend"><i class="fa fa-shield"></i>Friends</a></li>
+	    
 				<li><a href="#login"><i class="fa fa-shield"></i>Login</a></li>
 				 <li ng-show="currentUser.role=='User'"><a href="#chat"><i class="fa fa-shield"></i>Chat</a></li>
 			     <li ng-hide="currentUser.role=='Admin'"><a href="#register"><i class="fa fa-shield"></i>
@@ -58,6 +58,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
 <script src="Config.js"></script>
 <script src="Blog/BlogController.js"></script>
+<script src="Forum/ForumController.js"></script>
 <script src="Blog/AdminBlogController.js"></script>
 <script src="User/userController.js"></script>
 <script src="Job/JobController.js"></script>

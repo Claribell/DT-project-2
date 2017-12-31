@@ -1,0 +1,21 @@
+<div ng-controller="ForumController" >
+<div class="container">
+  <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Forum Name</th>
+        <th>Forum Content</th>
+        <th colspan="2">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="forum in forumdata">
+        <td>{{forum.forumName}}</td>
+        <td>{{forum.forumContent}}</td>
+        <!-- <td ng-show="forum.status=='R'"><input type="submit" value="Approve" ng-click="approveBlog(blog.blogId)"/></td>
+        <td ng-show="forum.status=='A'"><input type="submit" value="Reject" ng-click="rejectBlog(blog.blogId)"/></td>
+       </tr>  -->     
+    </tbody>
+  </table>
+</div>
+</div>

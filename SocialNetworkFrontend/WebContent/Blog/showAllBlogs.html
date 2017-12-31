@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Blog Name</th>
+        <th>Blog Content</th>
+        <th>Like</th>
+        <th colspan="2">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="blog in blogdata">
+        <td>{{blog.blogName}}</td>
+        <td>{{blog.blogContent}}</td>
+        <td>{{blog.likes}}&nbsp&nbsp<input type="submit" value="Like" ng-click="incrementLike(blog.blogId)"/></td>
+       </tr>      
+    </tbody>
+  </table>
+</div>

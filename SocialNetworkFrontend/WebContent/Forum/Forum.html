@@ -1,4 +1,45 @@
+<div ng-controller="ForumController" >
 
-<body>
-<center>Forum Page</center>
-</body>
+ <div class="col-md-4 col-md-offset-4 ">
+<div class="panel panel-success">
+<div class="panel-heading">
+<h4>Create a Forum</h4>
+</div>
+ <div class="panel-body" >
+  <form id="forumform" method="post">
+   <div class="form-group">
+      <label for="forumname">Forum Name</label>
+      <input type="text" data-ng-model="forum.forumName" class="form-control" id="forumname" placeholder="Enter Forum name" name="forumname">
+    </div>
+    <div class="form-group">
+      <label for="forumcontent">Forum Content</label>
+      <input type="text"  data-ng-model="forum.forumContent" class="form-control" id="forumcontent" placeholder="Enter Forum content" name="forumcontent">
+    </div>
+   <button type="submit" class="btn btn-success" ng-click="insertforum()">Submit</button>
+   
+</form>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container">
+  <table class="table">
+    <thead >
+      <tr class="success">
+        <th>Forum Name</th>
+        <th>Forum Content</th>
+        <th colspan="2">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="forum in forumdata">
+        <td>{{forum.forumName}}</td>
+        <td>{{forum.forumContent}}</td>
+        <td><input type="submit" value="Delete" ng-click="deleteForum(forum.forumId)"/></td>
+      </tr>      
+    </tbody>
+  </table>
+</div>
+</div>

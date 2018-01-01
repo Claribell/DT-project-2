@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,19 +44,21 @@ public class BlogController {
 		return new ResponseEntity <ArrayList<Blog>>(listBlogs,HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/updateBlog")
-	public ResponseEntity<String>updateBlog(@RequestBody Blog blog)
+	@PutMapping(value="/updateBlog/{blogId}")
+	public ResponseEntity<Blog>updateBlog(@PathVariable("blogId")int blogId, @RequestBody Blog blog)
 	{
-	Blog tempBlog=blogDao.getBlog(blog.getBlogId());
+	Blog tempBlog=blogDao.getBlog(blogId);
 	
 	
-	if(blogDao.updateBlog(tempBlog))
+	if (tempBlog != null)
 	{
-		return new ResponseEntity<String>("Blog updated",HttpStatus.OK);
+		tempBlog.setBlogName(blog.getBlogName());
+		tempBlog.setBlogContent(blog.getBlogContent());
+		return new ResponseEntity<Blog>(tempBlog,HttpStatus.OK);
 	}
 	else
 	{
-		return new ResponseEntity<String>("Error in Response Entity",HttpStatus.SERVICE_UNAVAILABLE);
+		return new ResponseEntity<Blog>(HttpStatus.SERVICE_UNAVAILABLE);
 	}
 	}
 	

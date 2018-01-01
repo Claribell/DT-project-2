@@ -1,5 +1,7 @@
 package com.niit.SocialNetworkBackend1.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -11,9 +13,16 @@ public class Profilepic {
 	
 	@Id
 	private String userName;
-	@Lob
+	@Lob //large object
 	private byte[] image;
+	
 
+
+	@Override
+	public String toString() {
+		return "Profilepic [userName=" + userName + ", image=" + Arrays.toString(image) + "]";
+	}
+	
 	public String getUserName() {
 		return userName;
 	}

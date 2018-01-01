@@ -74,6 +74,7 @@ public class FriendController {
 	public ResponseEntity<List<Friend>>getAllFriendRequest(HttpSession session)
 	{
 		String currentUser=(String)session.getAttribute("currentUser");
+        currentUser="Clari";
 		List<Friend>listFriendRequest=friendDao.getAllFriendRequest(currentUser);
 		return new ResponseEntity<List<Friend>>(listFriendRequest,HttpStatus.OK);	
 	}

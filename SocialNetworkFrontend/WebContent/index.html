@@ -20,6 +20,7 @@
 				<li ng-show="currentUser.role=='User'"><a href="#blog"><i class="fa fa-shield"></i>Blog</a></li>
 				<li ng-show="currentUser.role=='User'"><a href="#forum"><i class="fa fa-shield"></i>Forum</a></li>
 				<li ng-show="currentUser.role=='Admin'"><a href="#adminBlog"><i class="fa fa-shield"></i>AdminBlog</a></li>
+				<li ng-show="currentUser.role=='Admin'"><a href="#adminForum"><i class="fa fa-shield"></i>AdminForum</a></li>
 				<li  ng-show="currentUser.role=='Admin'"><a href="#job"><i class="fa fa-shield"></i>Job</a></li>
 				<li ng-show="currentUser.role=='User'"><a href="#showjob"><i class="fa fa-shield"></i>Show Job</a></li>
 				
@@ -31,7 +32,7 @@
 			     <li ng-hide="currentUser.role=='Admin'"><a href="#register"><i class="fa fa-shield"></i>
 						Register</a></li>
 					 </ul>
-					  <div ng-show="currentUser.role=='User'">
+					  <div ng-show="currentUser.role=='User' || currentUser.role=='Admin'">
 				 <div class="nav navbar-nav navbar-right" ng-show="currentUser.userName!='undefined'">
 				 <font color='#ffa31a' face='calibri' size='4'>Welcome:{{currentUser.userName}}&nbsp;&nbsp;&nbsp;
 				<img src="http://localhost:7072/SocialNetworkAppRest1/getImage/{{currentUser.userName}}" width="20" height="20"/>
@@ -59,6 +60,7 @@
 <script src="Config.js"></script>
 <script src="Blog/BlogController.js"></script>
 <script src="Forum/ForumController.js"></script>
+<script src="Forum/adminforumcontroller.js"></script>
 <script src="Blog/AdminBlogController.js"></script>
 <script src="User/userController.js"></script>
 <script src="Job/JobController.js"></script>

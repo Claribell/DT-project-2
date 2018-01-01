@@ -24,13 +24,13 @@ public class FriendDaoTest {
 	annotationConfigAppContext.refresh();
 	friendDao=(FriendDao)annotationConfigAppContext.getBean("friendDao");
 }
-  @Ignore
+
   @Test
   public void addFriendTest()
  {
 	  Friend friend=new Friend();
-	  friend.setFriendName("Sanjay");
-	  friend.setUserName("Rithika");
+	  friend.setFriendName("Clari");
+	  friend.setUserName("Daniel");
 	  friend.setStatus("R");
 	  assertTrue("Failure",friendDao.createFriend(friend));
 	 
@@ -57,6 +57,7 @@ public class FriendDaoTest {
 	  Friend friend=friendDao.getFriend(53);
 	  assertTrue("problem in rejecting",friendDao.rejectFriendRequest(friend));
   }
+  @Ignore
   @Test
   public void getAllApprovedFriendTest()
   {

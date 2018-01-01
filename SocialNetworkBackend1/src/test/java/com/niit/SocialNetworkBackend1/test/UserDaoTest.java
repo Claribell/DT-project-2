@@ -30,14 +30,14 @@ public class UserDaoTest {
 	public void addUserTest()
 	{
 		UserInfo user=new UserInfo();
-		user.setUserId(5);
-		user.setUserName("Nithin");
-		user.setFirstName("Nithin");
-		user.setLastName("Y");
-		user.setEmailId("nithin@gmail.com");
-		user.setPassword("5gfoi9@7");
+		user.setUserId(2);
+		user.setUserName("Avinash");
+		user.setFirstName("Avinash");
+		user.setLastName("Kesari");
+		user.setEmailId("avin@gmail.com");
+		user.setPassword("avi38%ksh");
 		user.setIsOnline("N");
-		user.setRole("User");
+		user.setRole("Admin");
 		assertTrue("problem in creating user",userDao.addUser(user));
      }
 	@Ignore
